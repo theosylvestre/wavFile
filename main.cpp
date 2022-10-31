@@ -1,11 +1,10 @@
 //
 //  main.cpp
-//  wavFile_Tutorial
+//  wavFile
 //
 //  Created by Théo Sylvestre on 13/04/2022.
 //
-// Useful links : http://soundfile.sapp.org/doc/WaveFormat/ (1)
-//                https://youtu.be/rHqkeLxAsTc              (2)
+// Useful links : http://soundfile.sapp.org/doc/WaveFormat/
 
 #include <iostream>
 #include <fstream>
@@ -64,8 +63,7 @@ const int block_align = num_channels * (subchunk1_size/8);
 /*
  == NumChannels * BitsPerSample/8
 The number of bytes for one sample including
-all channels. I wonder what happens when
-this number isn't an integer?
+all channels.
  */
 
 const int bits_per_sample = 16; //8 bits = 8, 16 bits = 16, etc.
@@ -88,7 +86,7 @@ const int duration = 2;
 const int max_amplitude = 32760; //2^16 bits divided by 2
 const double frequency = 250;
 
-//Refer to (2), (23min37s)
+
 void write_as_bytes(ofstream &file, int value, int byte_size){
     file.write(reinterpret_cast<const char*>(&value), byte_size);
 }
